@@ -12,3 +12,4 @@ C:\Users\THERMALTAKE\Desktop\App Hoteles Proyecto\BackEnd\AccesoDatos\obj\Debug\
 C:\Users\THERMALTAKE\Desktop\App Hoteles Proyecto\BackEnd\AccesoDatos\obj\Debug\net8.0\AccesoDatos.pdb
 C:\Users\THERMALTAKE\Desktop\App Hoteles Proyecto\BackEnd\AccesoDatos\obj\Debug\net8.0\AccesoDatos.genruntimeconfig.cache
 C:\Users\THERMALTAKE\Desktop\App Hoteles Proyecto\BackEnd\AccesoDatos\obj\Debug\net8.0\ref\AccesoDatos.dll
+C:\Users\THERMALTAKE\Desktop\App Hoteles Proyecto\BackEnd\AccesoDatos\obj\Debug\net8.0\AccesoDatos.sourcelink.json

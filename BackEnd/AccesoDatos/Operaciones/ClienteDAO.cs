@@ -1,5 +1,6 @@
 ﻿using AccesoDatos.Context;
 using AccesoDatos.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -84,14 +85,6 @@ namespace AccesoDatos.Operaciones
                     {
                         if (!string.IsNullOrWhiteSpace(cedulaActualizada) && !cedula.Equals(cedulaActualizada))
                         {
-                            var reservas = hotelesAppSqlContext.Reservas.Where(r => r.ClienteCedula == cedula).ToList();
-                            foreach (var reserva in reservas)
-                            {
-                                reserva.ClienteCedula = cedulaActualizada;
-                            }
-
-                            hotelesAppSqlContext.SaveChanges();
-
                             var nuevoCliente = new Cliente
                             {
                                 Cedula = cedulaActualizada,
@@ -99,15 +92,24 @@ namespace AccesoDatos.Operaciones
                                 Nombre = nombre,
                                 Email = email,
                                 Telefono = telefono,
+                                Dinero = cliente.Dinero
                             };
-
-                            //Eliminar cliente con cedula desactualizada
-                            hotelesAppSqlContext.Clientes.Remove(cliente);
-                            hotelesAppSqlContext.SaveChanges();
 
                             //Agregar cliente con cedula actualizada
                             hotelesAppSqlContext.Clientes.Add(nuevoCliente);
                             hotelesAppSqlContext.SaveChanges();
+
+                            var reservas = hotelesAppSqlContext.Reservas.Where(r => r.ClienteCedula == cedula).ToList();
+                            foreach (var reserva in reservas)
+                            {
+                                reserva.ClienteCedula = cedulaActualizada;
+                            }
+
+                            hotelesAppSqlContext.SaveChanges();                            
+
+                            //Eliminar cliente con cedula desactualizada
+                            hotelesAppSqlContext.Clientes.Remove(cliente);
+                            hotelesAppSqlContext.SaveChanges();                            
 
                             transaction.Commit();
 
@@ -131,7 +133,7 @@ namespace AccesoDatos.Operaciones
                     transaction.Rollback();
                     return false;
                 }
-            }
+            }            
         }
 
         /// <summary>
