@@ -289,5 +289,11 @@ namespace AccesoDatos.Operaciones
 
             return cantidadNoches;
         }
+
+        public decimal MostrarSaldo(string cedula)
+        {
+            var cliente = SeleccionarPorCedula(cedula);
+            return cliente.Dinero;
+        }
     }
 }
