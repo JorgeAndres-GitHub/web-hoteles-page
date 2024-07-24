@@ -80,5 +80,8 @@ namespace WebApi.Controllers
                 return false;
             }
         }
+
+        [HttpGet("dinero")]
+        public decimal MostrarDinero(string cedula) => clienteDAO.MostrarSaldo(cedula);
     }
 }
