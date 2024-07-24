@@ -100,7 +100,11 @@
               "RelativeDocumentMoniker": "WebApi\\Controllers\\HotelController.cs",
               "ToolTip": "C:\\Users\\THERMALTAKE\\Desktop\\App Hoteles Proyecto\\BackEnd\\WebApi\\Controllers\\HotelController.cs",
               "RelativeToolTip": "WebApi\\Controllers\\HotelController.cs",
+<<<<<<< HEAD
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAFAAAA",
+=======
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAcAAAA",
+>>>>>>> 60c2271b60010e6c3d7501c2527a99a6d3ede073
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-22T23:15:41.834Z",
               "EditorCaption": ""
@@ -127,7 +131,8 @@
               "RelativeToolTip": "AccesoDatos\\Operaciones\\ClienteDAO.cs",
               "ViewState": "AQIAABABAAAAAAAAAAAAACcBAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T15:08:29.225Z"
+              "WhenOpened": "2024-07-21T15:08:29.225Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -139,7 +144,8 @@
               "RelativeToolTip": "AccesoDatos\\Operaciones\\HotelDAO.cs",
               "ViewState": "AQIAAB0AAAAAAAAAAAAAAC0AAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T17:47:25.136Z"
+              "WhenOpened": "2024-07-21T17:47:25.136Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -151,7 +157,8 @@
               "RelativeToolTip": "AccesoDatos\\Operaciones\\HabitacionDAO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T17:13:56.153Z"
+              "WhenOpened": "2024-07-21T17:13:56.153Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
