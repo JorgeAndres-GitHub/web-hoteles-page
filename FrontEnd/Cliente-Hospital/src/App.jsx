@@ -4,6 +4,8 @@ import { Login } from './Login'
 import { DashBoard } from './Dashboard'
 import { Hotel } from './Hotel'
 import { Perfil } from './Perfil'
+import { ReservaForm } from './ReservaForm'
+import { Dinero } from './dinero'
 
 export function App() {
 
@@ -13,7 +15,9 @@ export function App() {
       <Route path='/login' element={<Login/>}/>
       <Route path='/dashboard' element={<DashBoard/>}/>
       <Route path='/hotel/:hotelId' element={<Hotel/>}/>
-      <Route path='perfil/:clienteCedula' element={<Perfil/>}/>
+      <Route path='/perfil/:clienteCedula' element={<Perfil/>}/>
+      <Route path='/reserva/:idHabitacion' element={<ReservaForm/>}/>
+      <Route path='/dinero' element={<Dinero/>}/>
     </Routes>
   )
 }

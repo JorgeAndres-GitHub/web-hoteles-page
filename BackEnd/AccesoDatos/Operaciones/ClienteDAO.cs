@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -237,6 +238,9 @@ namespace AccesoDatos.Operaciones
                                 reserva.PrecioTotal= totalAPagar;
                                 hotelesAppSqlContext.Reservas.Add(reserva);
                                 hotelesAppSqlContext.SaveChanges();
+
+                                EnviarCorreo(cedula, cantidadPersonas, reserva, diaEntrada, diaSalida);
+                                
                                 return true;
                             }
                             else
@@ -290,10 +294,97 @@ namespace AccesoDatos.Operaciones
             return cantidadNoches;
         }
 
+        /// <summary>
+        /// Mostrar el dinero que haya en la cuenta del cliente
+        /// </summary>
+        /// <param name="cedula"></param>
+        /// <returns></returns>
         public decimal MostrarSaldo(string cedula)
         {
             var cliente = SeleccionarPorCedula(cedula);
             return cliente.Dinero;
+        }
+
+        /// <summary>
+        /// Crear archivo de texto y enviar un correo al cliente
+        /// </summary>
+        /// <param name="cedula"></param>
+        /// <param name="cantidadPersonas"></param>
+        /// <param name="reserva"></param>
+        /// <param name="diaEntrada"></param>
+        /// <param name="diaSalida"></param>
+        /// <returns></returns>
+        public async Task EnviarCorreo(string cedula, int cantidadPersonas, Reserva reserva, DateOnly diaEntrada, DateOnly diaSalida)
+        {
+            HotelDAO hotelDAO = new HotelDAO();
+            var hotel = hotelDAO.MostrarHotelesDelCliente(cedula).Where(h => h.FechaEntrada == diaEntrada && h.FechaSalida == diaSalida).FirstOrDefault();
+            using (StreamWriter archivo = new StreamWriter(@"C:\Users\THERMALTAKE\Desktop\App Hoteles Proyecto\BackEnd\AccesoDatos\ArchivoEnviar\Reserva.txt"))
+            {
+                archivo.WriteLine("-----------------------HOTELES PAGE---------------------");
+                archivo.WriteLine($"Numero de reserva: {reserva.Id}");
+                archivo.WriteLine($"Cedula del cliente: {reserva.ClienteCedula}");
+                archivo.WriteLine($"Cantidad de personas reservadas en la habitacion: {cantidadPersonas}");
+                archivo.WriteLine($"Nombre del hotel: {hotel.Nombre}");
+                archivo.WriteLine($"Direccion del hotel: {hotel.Direccion}");
+                archivo.WriteLine($"Ciudad: {hotel.Ciudad}");
+                archivo.WriteLine($"Numero de la habitacion: {hotel.NumeroHabitacion}");
+                archivo.WriteLine($"Tiempo de reserva: {reserva.FechaEntrada} - {reserva.FechaSalida}");
+                archivo.WriteLine($"Precio total de la reserva: {reserva.PrecioTotal}");
+                archivo.WriteLine("--------------------------------------------------------");
+                archivo.WriteLine("IMPORTANTE!: Entregue este documento en recepcion al momento de establecerse en el hotel.");
+            }
+
+            string EmailOrigen = "appjorgito@gmail.com";
+            string EmailDestino = SeleccionarPorCedula(cedula).Email;
+            string contrasenia = "lvep jycw wfgm reuo";
+            string path = @"C:\Users\THERMALTAKE\Desktop\App Hoteles Proyecto\BackEnd\AccesoDatos\ArchivoEnviar\Reserva.txt";
+
+            MailMessage mailMessage=new MailMessage(EmailOrigen, EmailDestino, "Registro de hotel", "<b>Hemos realizado correctamente su ingreso al hotel!.</b>");
+            mailMessage.Attachments.Add(new Attachment(path));
+            mailMessage.IsBodyHtml = true;
+            SmtpClient smtpClient=new SmtpClient("smtp.gmail.com");
+            smtpClient.EnableSsl = true;
+            smtpClient.UseDefaultCredentials = false;
+            smtpClient.Port = 587;
+            smtpClient.Credentials = new System.Net.NetworkCredential(EmailOrigen, contrasenia);
+
+            try
+            {
+                await smtpClient.SendMailAsync(mailMessage);                
+            }
+            catch (SmtpException smtpEx)
+            {
+                Console.WriteLine($"SMTP Error: {smtpEx.Message}");
+                // Manejar el error de SMTP, por ejemplo, guardando en un log
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"General Error: {ex.Message}");
+                // Manejar otros errores generales
+            }
+            finally
+            {
+                smtpClient.Dispose();
+                mailMessage.Dispose();
+            }
+
+            await Task.Delay(1000);
+            try
+            {
+                if (File.Exists(path))
+                {
+                    File.Delete(path);
+                    Console.WriteLine("Archivo eliminado correctamente.");
+                }
+            }
+            catch (IOException ioEx)
+            {
+                Console.WriteLine($"Error de IO al intentar eliminar el archivo: {ioEx.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al intentar eliminar el archivo: {ex.Message}");
+            }
         }
     }
 }

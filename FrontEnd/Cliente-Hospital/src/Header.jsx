@@ -20,7 +20,7 @@ export function Header(){
                 <Link to='/dashboard'>
                     <span>Inicio</span>
                 </Link>
-                <Link>
+                <Link to='/dinero'>
                     <span>{dinero}</span>
                 </Link>
                 <Link to={'/perfil/'+cedula}>

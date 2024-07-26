@@ -23,5 +23,11 @@ namespace AccesoDatos.Operaciones
 
             return habitaciones;
         }
+
+        public string SeleccionarTipoHabitacion(int idHabitacion)
+        {
+            var habitacion = hotelesAppSqlContext.Habitacions.Where(h => h.Id == idHabitacion).FirstOrDefault();
+            return habitacion.Tipo;
+        }
     }
 }

@@ -13,5 +13,8 @@ namespace WebApi.Controllers
 
         [HttpGet("habitaciones")]
         public List<Habitacion> MostrarHabitacionesDelHotel(int idHotel) => habitacionDAO.SeleccionarHabitacionesDelHotel(idHotel);
+
+        [HttpGet("habitacion")]
+        public string MostrarTipoHabitacion(int idHabitacion) => habitacionDAO.SeleccionarTipoHabitacion(idHabitacion);
     }
 }

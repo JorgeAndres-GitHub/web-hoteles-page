@@ -1,3 +1,5 @@
+import { json } from "react-router-dom";
+
 const URL='https://localhost:7247/api/';
 
 export function Login(cedula, contrasenia){
@@ -59,4 +61,47 @@ export function MostrarHotelesCliente(cedula){
         }
     })
     .then(data=>data.json());
+}
+
+export function IngresarAlHotel(CantidadPersonas, DiaEntradaMes, DiaEntradaAno, DiaEntradaDia, DiaSalidaMes, DiaSalidaAno, DiaSalidaDia, cedula, idHabitacion){
+    let datos={CantidadPersonas, DiaEntradaMes, DiaEntradaAno, DiaEntradaDia, DiaSalidaMes, DiaSalidaAno, DiaSalidaDia};
+
+    return fetch(URL+'ingresarClienteHotel?cedula='+cedula+'&idHabitacion='+idHabitacion,{
+        method:'POST',
+        body:JSON.stringify(datos),
+        headers:{
+            'Content-Type':'application/json'
+        }
+    })
+    .then(data=>data.text());
+}
+
+export function TipoHabitacion(idHabitacion){
+    return fetch(URL+'habitacion?idHabitacion='+idHabitacion,{
+        headers:{
+            'Content-Type':'application/json'
+        }
+    })
+    .then(data=>data.text());
+}
+
+export function GetCliente(cedula){
+    return fetch(URL+'cliente?cedula='+cedula,{
+        headers:{
+            'Content-Type':'application/json'
+        }
+    })
+    .then(data=>data.json());
+}
+
+export function AgregarDinero(cedula, dinero){
+    let datos={cedula, dinero}
+    return fetch(URL+'dinero',{
+        method:'POST',
+        body:JSON.stringify(datos),
+        headers:{
+            'Content-Type':'application/json'
+        }
+    })
+    .then(data=>data.text());
 }

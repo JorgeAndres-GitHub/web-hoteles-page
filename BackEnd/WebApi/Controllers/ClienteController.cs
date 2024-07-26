@@ -12,6 +12,9 @@ namespace WebApi.Controllers
     {
         ClienteDAO clienteDAO = new ClienteDAO();
 
+        [HttpGet("cliente")]
+        public Cliente GetCliente(string cedula) => clienteDAO.SeleccionarPorCedula(cedula);
+
         [HttpPost("cliente")]
         public string Login([FromBody] LoginRequest usuario)
         {
