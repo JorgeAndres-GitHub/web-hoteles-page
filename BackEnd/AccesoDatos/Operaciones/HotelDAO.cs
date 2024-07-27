@@ -1,5 +1,6 @@
 ﻿using AccesoDatos.Context;
 using AccesoDatos.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,6 +49,34 @@ namespace AccesoDatos.Operaciones
         {
             var hoteles = hotelesAppSqlContext.Hotels;
             return hoteles.ToList();
+        }        
+
+        public List<Hotel>? FiltrarHoteles(string? nombre=null, string? ciudad=null, int? estrellas = null)
+        {
+            if(string.IsNullOrEmpty(nombre) && string.IsNullOrEmpty(ciudad) & !estrellas.HasValue)
+            {
+                return null;
+            }
+
+            var query = hotelesAppSqlContext.Hotels.AsQueryable();
+
+            if (!string.IsNullOrEmpty(nombre))
+            {
+                query = query.Where(h => EF.Functions.Like(h.Nombre, $"%{nombre}%"));
+            }
+
+            if (!string.IsNullOrEmpty(ciudad))
+            {
+                query =query.Where(h=>h.Ciudad==ciudad);
+            }
+
+            if (estrellas.HasValue)
+            {
+                query=query.Where(h=>h.NumeroEstrellas==estrellas);
+            }
+
+            return query.ToList();
+            
         }
     }
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import * as API from './services/data'
 import { Header } from "./Header";
+import { Link } from "react-router-dom";
 
 export function Perfil(){
     const [hoteles, setHoteles]=useState([]);
@@ -31,21 +32,42 @@ export function Perfil(){
                 <h2>Email: </h2> <h3>{cliente.email}</h3>
                 <h2>Telefono: </h2> <h3>{cliente.telefono}</h3>
             </div>
+            <Link to={'/actualizarDatos'}>
+                <span>Actualizar Datos Personales</span>
+            </Link>
+
             <div className="hoteles-container2">
                 <h2>HOTELES RESERVADOS</h2>
-                {hoteles.map(hotel=>(
-                    <div className="hotel-box2">
-                        <h2>{hotel.nombre}</h2>
-                        <p>{hotel.direccion}</p>
-                        <p>{hotel.ciudad}</p>
-                        <p>{hotel.numeroEstrellas}</p>
-                        <p>{hotel.numeroHabitacion}</p>
-                        <p>{hotel.tipo}</p>
-                        <p>{hotel.fechaEntrada}</p>
-                        <p>{hotel.fechaSalida}</p>
-                        <p>{hotel.precioTotal}</p>
-                    </div>
-                ))}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Direccion</th>
+                            <th>Ciudad</th>
+                            <th>Numero De Estrellas</th>
+                            <th>Numero de Habitación</th>
+                            <th>Tipo de habitación</th>
+                            <th>Fecha de entrada</th>
+                            <th>Fecha de salida</th>
+                            <th>Precio total</th>
+                        </tr>                        
+                    </thead>
+                    <tbody>
+                        {hoteles?.map(hotel=>(
+                            <tr>
+                                <td>{hotel.nombre}</td>
+                                <td>{hotel.direccion}</td>
+                                <td>{hotel.ciudad}</td>
+                                <td>{hotel.numeroEstrellas}</td>
+                                <td>{hotel.numeroHabitacion}</td>
+                                <td>{hotel.tipo}</td>
+                                <td>{hotel.fechaEntrada}</td>
+                                <td>{hotel.fechaSalida}</td>
+                                <td>{hotel.precioTotal}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
         </>
     )

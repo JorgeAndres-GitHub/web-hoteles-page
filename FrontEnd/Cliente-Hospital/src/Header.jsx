@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import * as API from './services/data'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export function Header(){
     const [dinero, setDinero]=useState();
     const cedula=sessionStorage.getItem("cedula");
+    const navigate=useNavigate();
 
     useEffect(()=>{        
         async function ObtenerSaldo(){            
@@ -13,6 +14,11 @@ export function Header(){
         }
         ObtenerSaldo();        
     }, []);   
+
+    function CerrarSesion(){
+        sessionStorage.removeItem("cedula");
+        navigate('/');
+    }
 
     return(
         <>
@@ -25,7 +31,8 @@ export function Header(){
                 </Link>
                 <Link to={'/perfil/'+cedula}>
                     <span>Mi Perfil</span>
-                </Link>                
+                </Link>       
+                <span onClick={CerrarSesion}>Cerrar Sesión</span>         
             </div>
         </>
     )

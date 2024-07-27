@@ -6,6 +6,7 @@ import { Hotel } from './Hotel'
 import { Perfil } from './Perfil'
 import { ReservaForm } from './ReservaForm'
 import { Dinero } from './dinero'
+import { DatosActualizados } from './DatosActualizados'
 
 export function App() {
 
@@ -18,6 +19,7 @@ export function App() {
       <Route path='/perfil/:clienteCedula' element={<Perfil/>}/>
       <Route path='/reserva/:idHabitacion' element={<ReservaForm/>}/>
       <Route path='/dinero' element={<Dinero/>}/>
+      <Route path='/actualizarDatos' element={<DatosActualizados/>}/>
     </Routes>
   )
 }

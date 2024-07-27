@@ -16,5 +16,17 @@ namespace WebApi.Controllers
 
         [HttpGet("hotelesCliente")]
         public List<HotelCliente> MostrarHotelesCliente(string cedula) => hotelDAO.MostrarHotelesDelCliente(cedula);
+
+        [HttpGet("filtrarHoteles")]
+        public ActionResult<List<Hotel>> FiltrarHoteles([FromQuery] string? nombre, [FromQuery] string? ciudad, [FromQuery] int? estrellas)
+        {
+            var result = hotelDAO.FiltrarHoteles(nombre, ciudad, estrellas);
+            if (result == null || result.Count == 0)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+        }
+
     }
 }
