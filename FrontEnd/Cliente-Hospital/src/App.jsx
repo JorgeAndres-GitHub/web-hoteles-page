@@ -7,6 +7,7 @@ import { Perfil } from './Perfil'
 import { ReservaForm } from './ReservaForm'
 import { Dinero } from './dinero'
 import { DatosActualizados } from './DatosActualizados'
+import { ReservaDelete } from './ReservaDelete'
 
 export function App() {
 
@@ -20,6 +21,7 @@ export function App() {
       <Route path='/reserva/:idHabitacion' element={<ReservaForm/>}/>
       <Route path='/dinero' element={<Dinero/>}/>
       <Route path='/actualizarDatos' element={<DatosActualizados/>}/>
+      <Route path='/reservaDelete/:idReserva' element={<ReservaDelete/>}/>
     </Routes>
   )
 }

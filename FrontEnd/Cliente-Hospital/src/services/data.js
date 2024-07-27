@@ -147,3 +147,13 @@ export function FiltrarHoteles(nombre, ciudad, estrellas) {
         return response.json().then(data => ({ exito: true, datos: data }));
     });        
 }
+
+export function EliminarReserva(cedula, id){
+    return fetch(URL_BASE+'eliminarReserva?cedula='+cedula+'&id='+id,{
+        method:'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(data=>data.text());
+}

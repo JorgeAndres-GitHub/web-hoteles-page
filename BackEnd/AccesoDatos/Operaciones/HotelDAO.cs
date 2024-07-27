@@ -28,6 +28,7 @@ namespace AccesoDatos.Operaciones
                         where r.ClienteCedula == cedula
                         select new HotelCliente
                         {
+                            ReservaId= r.Id,
                             Nombre = h.Nombre,
                             Direccion = h.Direccion,
                             Ciudad = h.Ciudad,
@@ -51,6 +52,13 @@ namespace AccesoDatos.Operaciones
             return hoteles.ToList();
         }        
 
+        /// <summary>
+        /// Busqueda dinamica de hoteles
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="ciudad"></param>
+        /// <param name="estrellas"></param>
+        /// <returns></returns>
         public List<Hotel>? FiltrarHoteles(string? nombre=null, string? ciudad=null, int? estrellas = null)
         {
             if(string.IsNullOrEmpty(nombre) && string.IsNullOrEmpty(ciudad) & !estrellas.HasValue)
@@ -75,8 +83,7 @@ namespace AccesoDatos.Operaciones
                 query=query.Where(h=>h.NumeroEstrellas==estrellas);
             }
 
-            return query.ToList();
-            
+            return query.ToList();            
         }
     }
 }

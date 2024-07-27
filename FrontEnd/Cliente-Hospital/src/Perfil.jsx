@@ -50,11 +50,12 @@ export function Perfil(){
                             <th>Fecha de entrada</th>
                             <th>Fecha de salida</th>
                             <th>Precio total</th>
+                            <th></th>
                         </tr>                        
                     </thead>
                     <tbody>
                         {hoteles?.map(hotel=>(
-                            <tr>
+                            <tr key={hotel.reservaId}>
                                 <td>{hotel.nombre}</td>
                                 <td>{hotel.direccion}</td>
                                 <td>{hotel.ciudad}</td>
@@ -64,6 +65,11 @@ export function Perfil(){
                                 <td>{hotel.fechaEntrada}</td>
                                 <td>{hotel.fechaSalida}</td>
                                 <td>{hotel.precioTotal}</td>
+                                <td>                                    
+                                    <Link to={'/reservaDelete/'+hotel.reservaId}>
+                                        <span>Eliminar Reserva</span>
+                                    </Link>                                    
+                                </td>
                             </tr>
                         ))}
                     </tbody>

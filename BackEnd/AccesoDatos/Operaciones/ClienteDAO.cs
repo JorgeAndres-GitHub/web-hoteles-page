@@ -331,7 +331,7 @@ namespace AccesoDatos.Operaciones
                 archivo.WriteLine($"Tiempo de reserva: {reserva.FechaEntrada} - {reserva.FechaSalida}");
                 archivo.WriteLine($"Precio total de la reserva: {reserva.PrecioTotal}");
                 archivo.WriteLine("--------------------------------------------------------");
-                archivo.WriteLine("IMPORTANTE!: Entregue este documento en recepcion al momento de establecerse en el hotel.");
+                archivo.WriteLine("IMPORTANTE!: Entregue este documento en recepcion al momento de establecerse en el hotel. En caso de cancelar su reserva se le devolvera el 60% del valor total pagado");
             }
 
             string EmailOrigen = "appjorgito@gmail.com";

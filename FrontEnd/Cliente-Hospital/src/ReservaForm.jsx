@@ -14,6 +14,7 @@ export function ReservaForm(){
     const [diaSalida, setDiaSalida] =useState("");
     const [mesSalida, setMesSalida] =useState("");
     const [anoSalida, setAnoSalida]=useState("");
+    const [costoTotal, setCostoTotal] =useState();
 
     const dias = Array.from({ length: 31 }, (_, i) => i + 1);
     const meses = [
