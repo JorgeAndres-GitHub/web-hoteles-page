@@ -8,21 +8,24 @@ import { ReservaForm } from './ReservaForm'
 import { Dinero } from './dinero'
 import { DatosActualizados } from './DatosActualizados'
 import { ReservaDelete } from './ReservaDelete'
+import { ChakraProvider } from '@chakra-ui/react'
 
 export function App() {
 
   return (
-    <Routes>
-      <Route path='/' element={<Registro/>}/>
-      <Route path='/login' element={<Login/>}/>
-      <Route path='/dashboard' element={<DashBoard/>}/>
-      <Route path='/hotel/:hotelId' element={<Hotel/>}/>
-      <Route path='/perfil/:clienteCedula' element={<Perfil/>}/>
-      <Route path='/reserva/:idHabitacion' element={<ReservaForm/>}/>
-      <Route path='/dinero' element={<Dinero/>}/>
-      <Route path='/actualizarDatos' element={<DatosActualizados/>}/>
-      <Route path='/reservaDelete/:idReserva' element={<ReservaDelete/>}/>
-    </Routes>
+    <ChakraProvider>
+        <Routes>
+          <Route path='/' element={<Registro/>}/>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/dashboard' element={<DashBoard/>}/>
+          <Route path='/hotel/:hotelId' element={<Hotel/>}/>
+          <Route path='/perfil/:clienteCedula' element={<Perfil/>}/>
+          <Route path='/reserva/:idHabitacion' element={<ReservaForm/>}/>
+          <Route path='/dinero' element={<Dinero/>}/>
+          <Route path='/actualizarDatos' element={<DatosActualizados/>}/>
+          <Route path='/reservaDelete/:idReserva' element={<ReservaDelete/>}/>
+      </Routes>
+    </ChakraProvider>
   )
 }
 

@@ -2,6 +2,10 @@ import { useEffect, useState } from "react"
 import * as API from './services/data'
 import { Header } from "./Header";
 import { Link } from "react-router-dom";
+import { Box, Center, Flex, Heading, Table, Tbody, Td, Text, Th, Thead, Tr } from "@chakra-ui/react";
+import { IoTrashBin } from "react-icons/io5";
+import { MdSystemUpdateAlt } from "react-icons/md";
+import { Tooltip } from '@chakra-ui/react';
 
 export function Perfil(){
     const [hoteles, setHoteles]=useState([]);
@@ -25,56 +29,84 @@ export function Perfil(){
     return(
         <>
             <Header/>
-            <h1>Perfil</h1>
-            <div>
-                <h2>Cedula: </h2> <h3>{cliente.cedula}</h3>
-                <h2>Nombre: </h2> <h3>{cliente.nombre}</h3>
-                <h2>Email: </h2> <h3>{cliente.email}</h3>
-                <h2>Telefono: </h2> <h3>{cliente.telefono}</h3>
-            </div>
-            <Link to={'/actualizarDatos'}>
-                <span>Actualizar Datos Personales</span>
-            </Link>
+            <Box minH='100vh' bgGradient='linear(to-r, #D6BCFA, #C6F6D5)'>
+                <Center>
+                    <Heading mt='20px'>Perfil</Heading>
+                </Center>
+                <Center>
+                    <Box mt='20px'>                
+                        <Flex>
+                            <Text fontWeight='bold' fontSize='15'>Cedula: </Text> 
+                            <Text ml='5px'>{cliente.cedula}</Text>
+                        </Flex>
+                        <Flex>
+                            <Text fontWeight='bold' fontSize='15'>Nombre: </Text> 
+                            <Text ml='5px'>{cliente.nombre}</Text>
+                        </Flex>
+                        <Flex>
+                            <Text fontWeight='bold' fontSize='15'>Email: </Text> 
+                            <Text ml='5px'>{cliente.email}</Text>
+                        </Flex>
+                        <Flex>
+                            <Text fontWeight='bold' fontSize='15'>Telefono: </Text> 
+                            <Text ml='5px'>{cliente.telefono}</Text>
+                        </Flex>
+                    </Box>
+                </Center>  
+                <Center>
+                    <Tooltip label='Actualizar datos personales' placement='top'>
+                        <Link to={'/actualizarDatos'}>
+                            <Box mt='20px'><MdSystemUpdateAlt/></Box>
+                        </Link>
+                    </Tooltip>
+                </Center>
 
-            <div className="hoteles-container2">
-                <h2>HOTELES RESERVADOS</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Direccion</th>
-                            <th>Ciudad</th>
-                            <th>Numero De Estrellas</th>
-                            <th>Numero de Habitación</th>
-                            <th>Tipo de habitación</th>
-                            <th>Fecha de entrada</th>
-                            <th>Fecha de salida</th>
-                            <th>Precio total</th>
-                            <th></th>
-                        </tr>                        
-                    </thead>
-                    <tbody>
-                        {hoteles?.map(hotel=>(
-                            <tr key={hotel.reservaId}>
-                                <td>{hotel.nombre}</td>
-                                <td>{hotel.direccion}</td>
-                                <td>{hotel.ciudad}</td>
-                                <td>{hotel.numeroEstrellas}</td>
-                                <td>{hotel.numeroHabitacion}</td>
-                                <td>{hotel.tipo}</td>
-                                <td>{hotel.fechaEntrada}</td>
-                                <td>{hotel.fechaSalida}</td>
-                                <td>{hotel.precioTotal}</td>
-                                <td>                                    
-                                    <Link to={'/reservaDelete/'+hotel.reservaId}>
-                                        <span>Eliminar Reserva</span>
-                                    </Link>                                    
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+                <Box className="hoteles-container2">
+                    <Center fontWeight='bold' fontSize='20'>
+                        <Text mt='30px'>HOTELES RESERVADOS</Text>          
+                    </Center>      
+                    <Center>
+                        <Table size='md' variant='striped' colorScheme="teal" mt='20px' width='98%'>
+                            <Thead>
+                                <Tr>
+                                    <Th>Nombre</Th>
+                                    <Th>Direccion</Th>
+                                    <Th>Ciudad</Th>
+                                    <Th>Numero De Estrellas</Th>
+                                    <Th>Numero de Habitación</Th>
+                                    <Th>Tipo de habitación</Th>
+                                    <Th>Fecha de entrada</Th>
+                                    <Th>Fecha de salida</Th>
+                                    <Th>Precio total</Th>
+                                    <Th></Th>
+                                </Tr>                        
+                            </Thead>
+                            <Tbody>
+                                {hoteles?.map(hotel=>(
+                                    <Tr key={hotel.reservaId}>
+                                        <Td>{hotel.nombre}</Td>
+                                        <Td>{hotel.direccion}</Td>
+                                        <Td>{hotel.ciudad}</Td>
+                                        <Td>{hotel.numeroEstrellas}</Td>
+                                        <Td>{hotel.numeroHabitacion}</Td>
+                                        <Td>{hotel.tipo}</Td>
+                                        <Td>{hotel.fechaEntrada}</Td>
+                                        <Td>{hotel.fechaSalida}</Td>
+                                        <Td>{hotel.precioTotal}</Td>
+                                        <Td>         
+                                            <Tooltip label='Eliminar reserva' placement="top">                         
+                                                <Link to={'/reservaDelete/'+hotel.reservaId}>
+                                                    <Box><IoTrashBin /></Box>
+                                                </Link>   
+                                            </Tooltip>                                   
+                                        </Td>
+                                    </Tr>
+                                ))}
+                            </Tbody>
+                        </Table>
+                    </Center>
+                </Box>
+            </Box>
         </>
     )
 }

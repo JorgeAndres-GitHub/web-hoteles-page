@@ -3,6 +3,8 @@ import * as API from './services/data';
 import imagen from './assets/visa.jpg';
 import imagen2 from './assets/paypal.png';
 import { Header } from './Header';
+import { Heading, Center, FormControl, FormLabel, Input, Image, Text, Stack, Box } from '@chakra-ui/react';
+import { Radio, RadioGroup } from '@chakra-ui/react'
 
 export function Dinero(){
     const cedula=sessionStorage.getItem("cedula");
@@ -21,16 +23,41 @@ export function Dinero(){
     return(
         <>
             <Header/>
-            <h1>Agregar Dinero a la Cuenta</h1>
-            <form id='form' onSubmit={handleSubmit}>
-                Metodo de pago:<br></br>
-                VISA<input type='radio' name='paymentMethod' value='visa'/><img src={imagen} width='50px'></img><br></br>
-                PayPal<input type='radio' name='paymentMethod' value='paypal'/><img src={imagen2} width='50px'/><br></br>
-                <label>
-                    Valor a ingresar: <input type='number' step='0.01' value={dinero} onChange={event=>setDinero(event.target.value)}></input>
-                </label><br></br>                
-                <input type='submit' id='Subir'></input>
-            </form>
+            <Box minH="100vh" bgGradient="linear(to-r, #B3E5FC, #E1BEE7)">
+                <Center>
+                    <Heading mt='50px'>Agregar Dinero a la Cuenta</Heading>
+                </Center>
+                <Center>
+                    <Box boxShadow='xl' borderRadius='md' width='40%' p='20px' bgGradient="linear(to-r, #FFECB3, #F8BBD0)" mt='30px'>
+                        <form id='form' onSubmit={handleSubmit}>
+                            <Center>
+                                <Text fontSize='20'>Metodo de pago:</Text>
+                            </Center>                            
+                                <FormControl mt='20px'>
+                                    <Center>
+                                        <RadioGroup >
+                                            <Stack direction='row'>
+                                                <Radio value='visa' borderColor='teal'></Radio>
+                                                <Image src={imagen} width='50px'></Image>
+                                                <Radio value='paypal' borderColor='teal'></Radio>
+                                                <Image src={imagen2} width='100px'></Image>
+                                            </Stack>
+                                        </RadioGroup>     
+                                    </Center>                            
+                                </FormControl>                            
+                            <FormControl mt='20px'>
+                                <Center>
+                                    <FormLabel fontSize='18'>Valor a ingresar: </FormLabel>
+                                </Center>
+                                <Input type='number' borderColor='teal' step='0.01' value={dinero} onChange={event=>setDinero(event.target.value)}></Input>
+                            </FormControl> 
+                            <FormControl>
+                                <Input mt='20px' type='submit' id='Subir' value='Enviar Dinero' borderColor='teal'></Input>
+                            </FormControl>                             
+                        </form>
+                    </Box>
+                </Center>
+            </Box>
         </>
     )
 }

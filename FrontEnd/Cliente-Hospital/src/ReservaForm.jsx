@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Header } from "./Header";
 import { useParams } from "react-router-dom";
 import * as API from './services/data'
+import { Box, Heading, Select, Text } from "@chakra-ui/react";
 
 export function ReservaForm(){
     let params=useParams();
@@ -14,7 +15,6 @@ export function ReservaForm(){
     const [diaSalida, setDiaSalida] =useState("");
     const [mesSalida, setMesSalida] =useState("");
     const [anoSalida, setAnoSalida]=useState("");
-    const [costoTotal, setCostoTotal] =useState();
 
     const dias = Array.from({ length: 31 }, (_, i) => i + 1);
     const meses = [
@@ -51,49 +51,49 @@ export function ReservaForm(){
         <>
             <Header/>
             <form id='formulario' onSubmit={handleSubmit}>
-                <h1>Reserva de habitación</h1>
-                <h3>Fecha de entrada</h3>
-                <label>
+                <Heading>Reserva de habitación</Heading>
+                <Text>Fecha de entrada</Text>
+                <Box as="label">
                     Dia:
-                    <select value={diaEntrada} onChange={event=>setDiaEntrada(event.target.value)}>
+                    <Select required value={diaEntrada} onChange={event=>setDiaEntrada(event.target.value)}>
                         <option value="">Seleccionar Dia</option>
                         {dias.map(dia=>(
                             <option key={dia} value={dia}>{dia}</option>
                         ))}
-                    </select>
+                    </Select>
                     Mes:
-                    <select value={mesEntrada} onChange={event=>setMesEntrada(event.target.value)}>
+                    <Select required value={mesEntrada} onChange={event=>setMesEntrada(event.target.value)}>
                         <option value="">Seleccionar Mes</option>
                         {meses.map(mes=>(
                             <option key={mes} value={mes}>{mes}</option>
                         ))}
-                    </select>
+                    </Select>
                     Año:
-                    <select value={anoEntrada} onChange={event=>setAnoEntrada(event.target.value)}>
+                    <select required value={anoEntrada} onChange={event=>setAnoEntrada(event.target.value)}>
                         <option value="">Seleccionar Año</option>
                         {anos.map(ano=>(
                             <option key={ano} value={ano}>{ano}</option>
                         ))}
                     </select>
-                </label>
+                </Box>
                 <h3>Fecha de salida</h3>
                 <label>
                     Dia:
-                    <select value={diaSalida} onChange={event=>setDiaSalida(event.target.value)}>
+                    <select required value={diaSalida} onChange={event=>setDiaSalida(event.target.value)}>
                         <option value="">Seleccionar Dia</option>
                         {dias.map(dia=>(
                             <option key={dia} value={dia}>{dia}</option>
                         ))}
                     </select>
                     Mes:
-                    <select value={mesSalida} onChange={event=>setMesSalida(event.target.value)}>
+                    <select required value={mesSalida} onChange={event=>setMesSalida(event.target.value)}>
                         <option value="">Seleccionar Mes</option>
                         {meses.map(mes=>(
                             <option key={mes} value={mes}>{mes}</option>
                         ))}
                     </select>
                     Año:
-                    <select value={anoSalida} onChange={event=>setAnoSalida(event.target.value)}>
+                    <select required value={anoSalida} onChange={event=>setAnoSalida(event.target.value)}>
                         <option value="">Seleccionar Año</option>
                         {anos.map(ano=>(
                             <option key={ano} value={ano}>{ano}</option>
@@ -102,7 +102,7 @@ export function ReservaForm(){
                 </label>
                 <label>
                     <h3>Cantidad de Personas:</h3>
-                    <select value={cantidadPersonas} onChange={event=>setCantidadPersonas(event.target.value)}>
+                    <select required value={cantidadPersonas} onChange={event=>setCantidadPersonas(event.target.value)}>
                         <option value="">Seleccionar cantidad</option>
                         {cantidadPersonasOpciones.map(cantidad=>(
                             <option key={cantidad} value={cantidad}>{cantidad}</option>
@@ -110,8 +110,7 @@ export function ReservaForm(){
                     </select>
                 </label><br></br>
                 <input type="submit" id='insertar' value='Reservar'/>
-            </form>
-            
+            </form>           
             
         </>
     )
