@@ -31,9 +31,17 @@ export function DatosActualizados(){
         }
         
         if(response==="true"){
-            alert("Se han actualizado los datos correctamente");
+            Swal.fire({
+                title: "Datos Actualizados",
+                text: "Se han actualizado los datos correctamente",
+                icon: "success"
+            });              
         }else{
-            alert("Hubo un error al actualizar los datos");
+            Swal.fire({
+                title: "Error",
+                text: "Hubo un error al actualizar los datos",
+                icon: "error"
+            });
         }
     }
 

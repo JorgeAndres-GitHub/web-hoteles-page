@@ -14,16 +14,29 @@ export function Registro(){
         e.preventDefault();
 
         if (!cliente.cedula || !cliente.contrasenia || !cliente.nombre || !cliente.email || !cliente.telefono) {
-            alert("Todos los campos son obligatorios");
+            Swal.fire({
+                title: "Error",
+                text: "Todos los campos son obligatorios",
+                icon: "warning"
+              });
             return;
         }
 
         const response= await API.Registro(cliente.cedula, cliente.contrasenia, cliente.nombre, cliente.email, cliente.telefono);
         if(response=="true"){
+            Swal.fire({
+                title: "Genial!",
+                text: "Se ha registrado correctamente",
+                icon: "success"
+              });
             navigate('/login')
         }
         else{
-            alert("Error al realizar el registro")
+            Swal.fire({
+                title: "Error",
+                text: "Error al realizar el registro",
+                icon: "error"
+              });
         }
     }
 
@@ -41,26 +54,26 @@ export function Registro(){
                         <form id='formulario' onSubmit={handleSubmit}>
                             <FormControl mt='25px'>
                                 <FormLabel>Cedula</FormLabel>
-                                <Input type="text" id='cedula' required onChange={event=>setCliente({...cliente, cedula:event.target.value})}></Input>
+                                <Input type="text" id='cedula' onChange={event=>setCliente({...cliente, cedula:event.target.value})}></Input>
                             </FormControl>
                             <FormControl mt='3px'>
                                 <FormLabel>Contraseña</FormLabel>
-                                <Input type="password" id='pass' required onChange={event=>setCliente({...cliente, contrasenia:event.target.value})}></Input>
+                                <Input type="password" id='pass' onChange={event=>setCliente({...cliente, contrasenia:event.target.value})}></Input>
                             </FormControl>
                             <FormControl>
                                 <FormLabel>Nombre</FormLabel>
-                                <Input type="text" id='nombre' required onChange={event=>setCliente({...cliente, nombre:event.target.value})}></Input>
+                                <Input type="text" id='nombre' onChange={event=>setCliente({...cliente, nombre:event.target.value})}></Input>
                             </FormControl>
                             <FormControl>
                                 <FormLabel>Email</FormLabel>
-                                <Input type="email" id='email' required onChange={event=>setCliente({...cliente, email:event.target.value})}></Input>
+                                <Input type="email" id='email' onChange={event=>setCliente({...cliente, email:event.target.value})}></Input>
                             </FormControl>
                             <FormControl>
                                 <FormLabel>Telefono</FormLabel>
-                                <Input type="text" id='telefono' required onChange={event=>setCliente({...cliente, telefono:event.target.value})}></Input>
+                                <Input type="text" id='telefono' onChange={event=>setCliente({...cliente, telefono:event.target.value})}></Input>
                             </FormControl>
                             <FormControl>
-                                <Input type="submit" id='enviar' value='Registrar' mt='5px' borderColor='blue'></Input>
+                                <Input type="submit" id='enviar' value='Registrar' mt='15px' borderColor='blue'></Input>
                             </FormControl>
                         </form>
                     </Box>

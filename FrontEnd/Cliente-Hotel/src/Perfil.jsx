@@ -11,6 +11,35 @@ export function Perfil(){
     const [hoteles, setHoteles]=useState([]);
     const [cliente, setCliente]=useState([]);
     const cedula =sessionStorage.getItem("cedula");
+
+    async function ReservaEliminar(reservaId){
+        const result= await Swal.fire({
+            title: "Esta seguro de que desea eliminar la reserva?",
+            text: "No sera capaz de revertir esto",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Si, estoy seguro"
+        });
+        if (result.isConfirmed) {
+            const response=await API.EliminarReserva(cedula, reservaId)
+            if(response=="true"){
+                Swal.fire({
+                    title: "Eliminado",
+                    text: "Tu reserva ha sido eliminada, se te ha devuelto un 60% del valor de la compra",
+                    icon: "success"
+                });
+            }else{
+                Swal.fire({
+                    title: "Error",
+                    text: "Hubo un error al intentar eliminar la reserva",
+                    icon: "error"
+                });
+            }            
+        }
+          
+    }
     
     useEffect(()=>{
         async function ObtenerCliente(){
@@ -24,7 +53,7 @@ export function Perfil(){
         }
         ObtenerCliente();
         ObtenerHoteles();
-    }, [])
+    })
     
     return(
         <>
@@ -63,7 +92,7 @@ export function Perfil(){
 
                 <Box className="hoteles-container2">
                     <Center fontWeight='bold' fontSize='20'>
-                        <Text mt='30px'>HOTELES RESERVADOS</Text>          
+                        <Text mt='30px'>MIS RESERVAS</Text>          
                     </Center>      
                     <Center>
                         <Table size='md' variant='striped' colorScheme="teal" mt='20px' width='98%'>
@@ -94,10 +123,8 @@ export function Perfil(){
                                         <Td>{hotel.fechaSalida}</Td>
                                         <Td>{hotel.precioTotal}</Td>
                                         <Td>         
-                                            <Tooltip label='Eliminar reserva' placement="top">                         
-                                                <Link to={'/reservaDelete/'+hotel.reservaId}>
-                                                    <Box><IoTrashBin /></Box>
-                                                </Link>   
+                                            <Tooltip label='Eliminar reserva' placement="top">      
+                                                <Box cursor='pointer' onClick={()=>ReservaEliminar(hotel.reservaId)}><IoTrashBin /></Box>
                                             </Tooltip>                                   
                                         </Td>
                                     </Tr>

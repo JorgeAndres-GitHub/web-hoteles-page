@@ -7,19 +7,19 @@
       "RelativeMoniker": "D:0:0:{DF241B2B-C202-4E0C-B54E-FF2D9B2F87F2}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{15BD573D-FC08-4860-A495-F79B57060005}|AccesoDatos\\AccesoDatos.csproj|c:\\users\\thermaltake\\desktop\\app hoteles proyecto\\backend\\accesodatos\\operaciones\\clientedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{15BD573D-FC08-4860-A495-F79B57060005}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\operaciones\\clientedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\THERMALTAKE\\AppData\\Local\\SourceServer\\7df79f2fd14bb14bd0ca5c75f95f593aeacb4b6aa3900e3629ea4651499847e3\\BackEnd\\AccesoDatos\\Operaciones\\ClienteDAO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\THERMALTAKE\\AppData\\Local\\SourceServer\\7df79f2fd14bb14bd0ca5c75f95f593aeacb4b6aa3900e3629ea4651499847e3\\BackEnd\\AccesoDatos\\Operaciones\\ClienteDAO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DF241B2B-C202-4E0C-B54E-FF2D9B2F87F2}|WebApi\\WebApi.csproj|c:\\users\\thermaltake\\desktop\\app hoteles proyecto\\backend\\webapi\\controllers\\reservacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF241B2B-C202-4E0C-B54E-FF2D9B2F87F2}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\reservacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{15BD573D-FC08-4860-A495-F79B57060005}|AccesoDatos\\AccesoDatos.csproj|c:\\users\\thermaltake\\desktop\\app hoteles proyecto\\backend\\accesodatos\\operaciones\\reservadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{15BD573D-FC08-4860-A495-F79B57060005}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\operaciones\\reservadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DF241B2B-C202-4E0C-B54E-FF2D9B2F87F2}|WebApi\\WebApi.csproj|c:\\users\\thermaltake\\desktop\\app hoteles proyecto\\backend\\webapi\\controllers\\reservacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DF241B2B-C202-4E0C-B54E-FF2D9B2F87F2}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\reservacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DF241B2B-C202-4E0C-B54E-FF2D9B2F87F2}|WebApi\\WebApi.csproj|c:\\users\\thermaltake\\desktop\\app hoteles proyecto\\backend\\webapi\\controllers\\hotelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF241B2B-C202-4E0C-B54E-FF2D9B2F87F2}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\hotelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{15BD573D-FC08-4860-A495-F79B57060005}|AccesoDatos\\AccesoDatos.csproj|c:\\users\\thermaltake\\desktop\\app hoteles proyecto\\backend\\accesodatos\\operaciones\\hoteldao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,8 +34,8 @@
       "RelativeMoniker": "D:0:0:{15BD573D-FC08-4860-A495-F79B57060005}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\operaciones\\habitaciondao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DF241B2B-C202-4E0C-B54E-FF2D9B2F87F2}|WebApi\\WebApi.csproj|c:\\users\\thermaltake\\desktop\\app hoteles proyecto\\backend\\webapi\\controllers\\hotelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DF241B2B-C202-4E0C-B54E-FF2D9B2F87F2}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\hotelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{15BD573D-FC08-4860-A495-F79B57060005}|AccesoDatos\\AccesoDatos.csproj|c:\\users\\thermaltake\\desktop\\app hoteles proyecto\\backend\\accesodatos\\operaciones\\clientedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{15BD573D-FC08-4860-A495-F79B57060005}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\operaciones\\clientedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -53,20 +53,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "ClienteDAO.cs",
               "DocumentMoniker": "C:\\Users\\THERMALTAKE\\AppData\\Local\\SourceServer\\7df79f2fd14bb14bd0ca5c75f95f593aeacb4b6aa3900e3629ea4651499847e3\\BackEnd\\AccesoDatos\\Operaciones\\ClienteDAO.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\SourceServer\\7df79f2fd14bb14bd0ca5c75f95f593aeacb4b6aa3900e3629ea4651499847e3\\BackEnd\\AccesoDatos\\Operaciones\\ClienteDAO.cs",
-              "ToolTip": "C:\\Users\\THERMALTAKE\\AppData\\Local\\SourceServer\\7df79f2fd14bb14bd0ca5c75f95f593aeacb4b6aa3900e3629ea4651499847e3\\BackEnd\\AccesoDatos\\Operaciones\\ClienteDAO.cs [Solo lectura]",
-              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\SourceServer\\7df79f2fd14bb14bd0ca5c75f95f593aeacb4b6aa3900e3629ea4651499847e3\\BackEnd\\AccesoDatos\\Operaciones\\ClienteDAO.cs [Solo lectura]",
+              "ToolTip": "C:\\Users\\THERMALTAKE\\AppData\\Local\\SourceServer\\7df79f2fd14bb14bd0ca5c75f95f593aeacb4b6aa3900e3629ea4651499847e3\\BackEnd\\AccesoDatos\\Operaciones\\ClienteDAO.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\SourceServer\\7df79f2fd14bb14bd0ca5c75f95f593aeacb4b6aa3900e3629ea4651499847e3\\BackEnd\\AccesoDatos\\Operaciones\\ClienteDAO.cs",
               "ViewState": "AQIAAE8BAAAAAAAAAAAlwGEBAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-27T16:52:37.447Z",
-              "EditorCaption": " [Solo lectura]"
+              "WhenOpened": "2024-07-27T16:52:37.447Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "ReservaController.cs",
               "DocumentMoniker": "C:\\Users\\THERMALTAKE\\Desktop\\App Hoteles Proyecto\\BackEnd\\WebApi\\Controllers\\ReservaController.cs",
               "RelativeDocumentMoniker": "WebApi\\Controllers\\ReservaController.cs",
@@ -90,7 +89,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 4,
               "Title": "HotelController.cs",
               "DocumentMoniker": "C:\\Users\\THERMALTAKE\\Desktop\\App Hoteles Proyecto\\BackEnd\\WebApi\\Controllers\\HotelController.cs",
               "RelativeDocumentMoniker": "WebApi\\Controllers\\HotelController.cs",
@@ -132,14 +131,14 @@
               "RelativeDocumentMoniker": "WebApi\\Controllers\\ClienteController.cs",
               "ToolTip": "C:\\Users\\THERMALTAKE\\Desktop\\App Hoteles Proyecto\\BackEnd\\WebApi\\Controllers\\ClienteController.cs",
               "RelativeToolTip": "WebApi\\Controllers\\ClienteController.cs",
-              "ViewState": "AQIAAC8AAAAAAAAAAAAAADsAAAAIAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAA8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-25T15:53:40.721Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "ClienteDAO.cs",
               "DocumentMoniker": "C:\\Users\\THERMALTAKE\\Desktop\\App Hoteles Proyecto\\BackEnd\\AccesoDatos\\Operaciones\\ClienteDAO.cs",
               "RelativeDocumentMoniker": "AccesoDatos\\Operaciones\\ClienteDAO.cs",

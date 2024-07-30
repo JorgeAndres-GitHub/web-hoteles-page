@@ -14,9 +14,37 @@ export function Dinero(){
         e.preventDefault();
         const response=await API.AgregarDinero(cedula, dinero);
         if(response=="true"){
-            alert("Se ha agregado el dinero correctamente a tu cuenta");
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.onmouseenter = Swal.stopTimer;
+                  toast.onmouseleave = Swal.resumeTimer;
+                }
+              });
+              Toast.fire({
+                icon: "success",
+                title: "Se ha agregado el dinero correctamente a tu cuenta"
+              });
         }else{
-            alert("Hubo un error al intentar agregar dinero a la cuenta");
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.onmouseenter = Swal.stopTimer;
+                  toast.onmouseleave = Swal.resumeTimer;
+                }
+              });
+              Toast.fire({
+                icon: "error",
+                title: "Hubo un error al intentar agregar dinero a la cuenta"
+              });
         }
     }
 

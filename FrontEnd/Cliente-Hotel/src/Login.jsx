@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as API from './services/data'
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -7,19 +7,61 @@ import { FaHotel } from "react-icons/fa6";
 
 export function Login(){
     const [cliente, setCliente]=useState({cedula:'', contrasenia:''});
+    const [showSpinner, setShowSpinner]=useState(false);
     const navigate=useNavigate();
     const {isOpen, onToggle}=useDisclosure();
+    
+
+    useEffect(()=>{
+        let timer;
+        if(showSpinner){
+            timer=setTimeout(()=>{
+                setShowSpinner(false);
+                onToggle();
+            }, 3000);
+        }
+        return ()=>clearTimeout(timer);
+    }, [showSpinner, onToggle])
 
     async function handleSubmit(e){
         e.preventDefault();
+        setShowSpinner(true);
         onToggle();
         const response= await API.Login(cliente.cedula, cliente.contrasenia);
         if(response.length!=0){
             sessionStorage.setItem("cedula", response);
-            alert("Ha iniciado sesion correctamente")
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.onmouseenter = Swal.stopTimer;
+                  toast.onmouseleave = Swal.resumeTimer;
+                }
+              });
+              await Toast.fire({
+                icon: "success",
+                title: "Ha iniciado sesión correctamente"
+              });
             navigate('/dashboard');
         }else{
-            alert("Error al iniciar sesion")
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.onmouseenter = Swal.stopTimer;
+                  toast.onmouseleave = Swal.resumeTimer;
+                }
+              });
+              await Toast.fire({
+                icon: "error",
+                title: "Error al iniciar sesión"
+              });
         }
     }
 
@@ -56,7 +98,9 @@ export function Login(){
                 <Collapse in={isOpen} animateOpacity>
                     <Center mt='4'>
                         <Box>
-                            <Spinner thickness='4px' speed='0.65s' emptyColor='gray.200' color='blue.500' size='xl'></Spinner>
+                            {showSpinner && (
+                                <Spinner thickness='4px' speed='0.65s' emptyColor='gray.200' color='blue.500' size='xl'></Spinner>
+                            )}
                         </Box>
                     </Center>
                 </Collapse>

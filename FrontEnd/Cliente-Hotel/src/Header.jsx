@@ -35,10 +35,10 @@ export function Header(){
                 </HStack>  
                 <HStack as='nav'>
                     <Link to='/dinero'>
-                        <Box _hover={{color:"gray.300"}}>{dinero}</Box>
+                        <Box _hover={{color:"gray.300"}} mr='10px'>${dinero}</Box>
                     </Link>
                     <Link to={'/perfil/'+cedula}>
-                        <Box _hover={{color:"gray.300"}}>Mi Perfil</Box>
+                        <Box _hover={{color:"gray.300"}} mr='10px'>Mi Perfil</Box>
                     </Link>       
                     <Box mr='20px' cursor='pointer' _hover={{color:"gray.300"}} onClick={CerrarSesion}>Cerrar Sesión</Box>      
                 </HStack> 
